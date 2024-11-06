@@ -1,11 +1,9 @@
-import {TouchableHighlight} from 'react-native';
+import {Pressable} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {css} from 'styled-components';
 import styled from 'styled-components/native';
 
-export const Wrapper = styled(TouchableHighlight).attrs(() => ({
-  underlayColor: 'transparent',
-}))`
+export const Wrapper = styled(Pressable)`
   padding: ${({theme}) => `${theme.spacers.M} ${theme.spacers.L}`};
   align-items: center;
 `;

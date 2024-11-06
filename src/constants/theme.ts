@@ -1,6 +1,8 @@
 export const theme = {
   colors: {
     background: '#030A13',
+    lightPurple: '#B58AFF',
+    secondary: '#6683A7',
   },
   spacers: {
     XXS: '2px',

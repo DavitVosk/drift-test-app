@@ -8,6 +8,8 @@ const Connect = () => {
     <S.StyledBgImage source={require('@assets/images/background.png')}>
       <S.Wrapper>
         <Button onPress={() => {}} title="Connect Wallet" />
+
+        <S.Text text="By continue, you agree to the Drift Terms and Conditions and acknowledge that you have read and understood the Drift Protocol Disclaimer." />
       </S.Wrapper>
     </S.StyledBgImage>
   );
