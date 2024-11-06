@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import * as S from './styles';
 import {TextStyle} from 'react-native';
@@ -18,7 +18,6 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <S.Container
-      colors={['#E8A2A0', '#9468F1', '#71CCE9']}
       start={{x: 0, y: 0}}
       fullWidth={fullWidth}
       end={{x: 1, y: 0}}>
@@ -29,4 +28,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default memo(Button);

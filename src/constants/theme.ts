@@ -3,6 +3,9 @@ export const theme = {
     background: '#030A13',
     lightPurple: '#B58AFF',
     secondary: '#6683A7',
+    blushPink: '#E8A2A0',
+    lavenderPurple: '#9468F1',
+    aquaBlue: '#71CCE9',
   },
   spacers: {
     XXS: '2px',

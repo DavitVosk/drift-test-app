@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 
 import * as S from './styles';
 import Button from '@src/components/Button';
@@ -15,4 +15,4 @@ const Connect = () => {
   );
 };
 
-export default Connect;
+export default memo(Connect);

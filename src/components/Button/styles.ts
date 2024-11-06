@@ -1,5 +1,7 @@
 import {Pressable} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient, {
+  LinearGradientProps,
+} from 'react-native-linear-gradient';
 import {css} from 'styled-components';
 import styled from 'styled-components/native';
 
@@ -8,7 +10,15 @@ export const Wrapper = styled(Pressable)`
   align-items: center;
 `;
 
-export const Container = styled(LinearGradient)<{fullWidth: boolean}>`
+export const Container = styled(LinearGradient).attrs<
+  Partial<LinearGradientProps> & {fullWidth: boolean}
+>(({theme}) => ({
+  colors: [
+    theme.colors.blushPink,
+    theme.colors.lavenderPurple,
+    theme.colors.aquaBlue,
+  ],
+}))`
   align-self: center;
   ${({fullWidth}) =>
     fullWidth &&

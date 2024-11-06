@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {TextStyle} from 'react-native';
 
-import * as S from './styles'
+import * as S from './styles';
 
 export interface Highlight {
   substring: string;
@@ -37,10 +37,14 @@ const HighlightText = ({text, style, highlights}: HighlightTextProps) => {
           );
         }
 
-        return <S.Text  style={style} key={index}>{part}</S.Text>;
+        return (
+          <S.Text style={style} key={index}>
+            {part}
+          </S.Text>
+        );
       })}
     </S.Text>
   );
 };
 
-export default HighlightText;
+export default memo(HighlightText);
