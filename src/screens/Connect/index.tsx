@@ -1,29 +1,30 @@
-import React, {memo} from 'react';
-import {AuthorizationResult} from '@solana-mobile/mobile-wallet-adapter-protocol';
-import {transact} from '@solana-mobile/mobile-wallet-adapter-protocol-web3js';
-
+import React, {memo, useCallback, useEffect, useState} from 'react';
 import Button from '@src/components/Button';
-import {APP_IDENTITY, WALLET_CLUSTER} from '@src/constants/appConfigs';
-import {getPublicKeyFromAddress} from '@src/utils/wallet';
 
 import * as S from './styles';
+import useConnect from '@src/hooks/useConnect';
+import {useAuth} from '@src/contexts/Auth';
+import {useNavigation} from '@react-navigation/native';
+import {Routes, StackParamList} from '@src/navigation/types';
+import {NativeStackNavigationProp} from 'react-native-screens/lib/typescript/native-stack/types';
 
 const Connect = () => {
-  const onPress = async () => {
-    await transact(async wallet => {
-      const authResult: AuthorizationResult = await wallet.authorize({
-        cluster: WALLET_CLUSTER,
-        identity: APP_IDENTITY,
-      });
-      const {accounts, auth_token} = authResult;
-      const publicKey = getPublicKeyFromAddress(accounts[0].address);
-    });
-  };
+  const {handleConnect, connecting} = useConnect();
+  const {selectedAccount} = useAuth();
+  const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>();
+
+  useEffect(() => {
+    if (!!selectedAccount) return navigation.navigate(Routes.Details);
+  }, [selectedAccount]);
 
   return (
     <S.StyledBgImage source={require('@assets/images/background.png')}>
       <S.Wrapper>
-        <Button onPress={onPress} title="Connect Wallet" />
+        <Button
+          onPress={handleConnect}
+          title="Connect Wallet"
+          disabled={connecting}
+        />
 
         <S.Text text="By continue, you agree to the Drift Terms and Conditions and acknowledge that you have read and understood the Drift Protocol Disclaimer." />
       </S.Wrapper>
