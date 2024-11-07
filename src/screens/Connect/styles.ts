@@ -2,7 +2,7 @@ import {ImageBackground, Linking} from 'react-native';
 import styled from 'styled-components/native';
 
 import HighlightText, {HighlightTextProps} from '@src/components/HighlightText';
-import {DRIFT_PROTOCOL, DRIFT_TERMS_AND_CONDITIONS} from '@src/constants';
+import {DRIFT_PROTOCOL, DRIFT_TERMS_AND_CONDITIONS} from '@src/constants/links';
 
 export const StyledBgImage = styled(ImageBackground)`
   flex: 1;

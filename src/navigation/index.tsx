@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import Connect from '@screens/Connects';
+import Connect from '@src/screens/Connect';
 
 import {Routes, StackParamList} from './types';
 
