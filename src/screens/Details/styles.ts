@@ -59,3 +59,8 @@ export const Amount = styled.Text`
   font-size: ${({theme}) => theme.spacers.XL};
   font-weight: ${({theme}) => theme.fonts.medium};
 `;
+
+export const ButtonWrapper = styled.View`
+  margin-top: ${({theme}) => theme.spacers.L};
+  padding-horizontal: ${({theme}) => theme.spacers.L};
+`;

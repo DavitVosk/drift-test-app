@@ -10,6 +10,7 @@ export const theme = {
     text: {
       default: '#D4D4D8',
       secondary: '#D4D4D8',
+      primary: '#000000',
     },
   },
   spacers: {

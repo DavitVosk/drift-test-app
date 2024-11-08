@@ -1,17 +1,23 @@
-import Copy from "./Copy";
-import Success from "./Success";
-import Settings from "./Settings";
+import Copy from './Copy';
+import Success from './Success';
+import Settings from './Settings';
+import WalletDummy from './WalletDummy';
+import DriftLogo from './DriftLogo';
 
 const icons = {
   copy: Copy,
   success: Success,
   settings: Settings,
+  walletDummy: WalletDummy,
+  driftLogo: DriftLogo,
 };
 
 export enum IconNames {
   copy = 'copy',
   success = 'success',
   settings = 'settings',
+  walletDummy = 'walletDummy',
+  driftLogo = 'driftLogo',
 }
 
 interface IconProps {

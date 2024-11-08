@@ -32,4 +32,5 @@ export const Title = styled.Text`
   font-size: ${({theme}) => theme.spacers.L};
   line-height: ${({theme}) => theme.spacers.XL};
   font-weight: ${({theme}) => theme.fonts.medium};
+  color: ${({theme}) => theme.colors.text.primary}
 `;

@@ -1,4 +1,4 @@
-import {Alert, Image} from 'react-native';
+import {Alert} from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Clipboard from '@react-native-clipboard/clipboard';
@@ -8,6 +8,7 @@ import Icon, {IconNames} from '@src/assets/icons';
 
 import * as S from './styles';
 import {useDetails} from './hooks';
+import Button from '@src/components/Button';
 
 const Details = () => {
   const {walletBalance, driftBalance, publicKeyString} = useDetails();
@@ -40,7 +41,7 @@ const Details = () => {
       <S.BalancesWrapper>
         <S.BalanceInfo>
           <S.TitleWrapper>
-            <Icon name={IconNames.settings} />
+            <Icon name={IconNames.walletDummy} />
             <S.AccountName>Wallet Balance</S.AccountName>
           </S.TitleWrapper>
           <S.Amount>{formatCurrency(walletBalance)}</S.Amount>
@@ -50,12 +51,20 @@ const Details = () => {
 
         <S.BalanceInfo>
           <S.TitleWrapper>
-            <Image source={require('@src/assets/images/Logo.png')} />
+            <Icon name={IconNames.driftLogo} />
             <S.AccountName>Drift Account</S.AccountName>
           </S.TitleWrapper>
           <S.Amount>{formatCurrency(driftBalance)}</S.Amount>
         </S.BalanceInfo>
       </S.BalancesWrapper>
+
+      <S.ButtonWrapper>
+        <Button
+          onPress={() => {}}
+          fullWidth
+          title="Deposit to Drift / Withdraw to Wallet"
+        />
+      </S.ButtonWrapper>
     </S.Wrapper>
   );
 };
