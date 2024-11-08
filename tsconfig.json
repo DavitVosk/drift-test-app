@@ -6,6 +6,7 @@
       "@assets/*": ["assets/*"],
       "@src/*": ["src/*"],
       "@screens/*": ["src/screens/*"],
-   }
+   },
+   "typeRoots": ["./node_modules/@types"],
   }
 }

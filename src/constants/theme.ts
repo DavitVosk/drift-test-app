@@ -6,6 +6,11 @@ export const theme = {
     blushPink: '#E8A2A0',
     lavenderPurple: '#9468F1',
     aquaBlue: '#71CCE9',
+    darkNavyBlue: '#101A27',
+    text: {
+      default: '#D4D4D8',
+      secondary: '#D4D4D8',
+    },
   },
   spacers: {
     XXS: '2px',
@@ -19,10 +24,10 @@ export const theme = {
     '4XL': '44px',
   },
   fonts: {
-    normal: "400",
-    medium: "500",
-    semibold: "600",
-    bold: "700",
-    extraBold: "800",
+    normal: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+    extraBold: '800',
   },
 };
