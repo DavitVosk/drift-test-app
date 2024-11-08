@@ -5,9 +5,9 @@ export const shortenText = (text: string, rightChars = 4, leftChars = 4) => {
   );
 };
 
-export const formatCurrency = (
-  amount: number | string,
-  currency: string = '$',
-) => {
-  return `${currency} ${amount}`;
+export const formatCurrency = (amount: number, currency: string = '$') => {
+  return `${currency} ${new Intl.NumberFormat('en-IN', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(amount)}`;
 };
