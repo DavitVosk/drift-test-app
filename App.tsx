@@ -7,20 +7,21 @@ import {theme} from '@src/constants/theme';
 import {RPC_ENDPOINT} from '@src/constants/appConfigs';
 import {AuthProvider} from '@src/contexts/Auth';
 import {ConnectionProvider} from '@src/contexts/Connection';
+import {DriftProvider} from '@src/contexts/Drift';
 
 export default () => {
   return (
-    <ConnectionProvider
-      config={{commitment: 'processed'}}
-      endpoint={clusterApiUrl(RPC_ENDPOINT)}>
+    <ConnectionProvider endpoint={clusterApiUrl(RPC_ENDPOINT)}>
       <AuthProvider>
-        <ThemeProvider theme={theme}>
-          <StatusBar
-            barStyle="light-content"
-            backgroundColor={theme.colors.background}
-          />
-          <AppNavigation />
-        </ThemeProvider>
+        <DriftProvider>
+          <ThemeProvider theme={theme}>
+            <StatusBar
+              barStyle="light-content"
+              backgroundColor={theme.colors.background}
+            />
+            <AppNavigation />
+          </ThemeProvider>
+        </DriftProvider>
       </AuthProvider>
     </ConnectionProvider>
   );

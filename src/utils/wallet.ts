@@ -1,4 +1,4 @@
-import {PublicKey, PublicKeyInitData} from '@solana/web3.js';
+import {LAMPORTS_PER_SOL, PublicKey, PublicKeyInitData} from '@solana/web3.js';
 import {toUint8Array} from 'js-base64';
 import {
   Account as AuthorizedAccount,
@@ -52,4 +52,12 @@ export const cacheReviver = (key: string, value: PublicKeyInitData) => {
   } else {
     return value;
   }
+};
+
+export const convertLamportsToSOL = (lamports: number): number => {
+  return Number(
+    new Intl.NumberFormat(undefined, {maximumFractionDigits: 1}).format(
+      (lamports || 0) / LAMPORTS_PER_SOL,
+    ),
+  );
 };

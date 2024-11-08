@@ -53,3 +53,9 @@ export const VerticalDivider = styled.View`
   gap: ${({theme}) => theme.spacers.XS};
   align-items: center;
 `;
+
+export const Amount = styled.Text`
+  color: ${({theme}) => theme.colors.text.default};
+  font-size: ${({theme}) => theme.spacers.XL};
+  font-weight: ${({theme}) => theme.fonts.medium};
+`;
