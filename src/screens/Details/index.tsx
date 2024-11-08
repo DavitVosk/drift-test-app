@@ -5,10 +5,14 @@ import Clipboard from '@react-native-clipboard/clipboard';
 
 import {formatCurrency, shortenText} from '@src/utils/string';
 import Icon, {IconNames} from '@src/assets/icons';
+import Button from '@src/components/Button';
+import TabView from '@src/components/TabView';
 
 import * as S from './styles';
 import {useDetails} from './hooks';
-import Button from '@src/components/Button';
+import {routes} from './constants';
+import YourWallet from './subScreens/YourWallet';
+import DriftAccount from './subScreens/DriftAccount';
 
 const Details = () => {
   const {walletBalance, driftBalance, publicKeyString} = useDetails();
@@ -22,6 +26,23 @@ const Details = () => {
     Clipboard.setString(publicKeyString);
     setCopied(true);
   }, []);
+
+  const renderScene = ({
+    route,
+  }: {
+    route: {
+      key: string;
+    };
+  }) => {
+    switch (route.key) {
+      case 'your_wallet':
+        return <YourWallet />;
+      case 'drift_account':
+        return <DriftAccount />;
+      default:
+        return <></>;
+    }
+  };
 
   return (
     <S.Wrapper>
@@ -65,6 +86,8 @@ const Details = () => {
           title="Deposit to Drift / Withdraw to Wallet"
         />
       </S.ButtonWrapper>
+
+      <TabView routes={routes} renderScene={renderScene} />
     </S.Wrapper>
   );
 };

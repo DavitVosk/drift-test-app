@@ -9,7 +9,7 @@ export const theme = {
     darkNavyBlue: '#101A27',
     text: {
       default: '#D4D4D8',
-      secondary: '#D4D4D8',
+      secondary: '#6683A7',
       primary: '#000000',
     },
   },

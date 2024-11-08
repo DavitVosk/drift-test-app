@@ -61,6 +61,6 @@ export const Amount = styled.Text`
 `;
 
 export const ButtonWrapper = styled.View`
-  margin-top: ${({theme}) => theme.spacers.L};
+  margin-vertical: ${({theme}) => theme.spacers.L};
   padding-horizontal: ${({theme}) => theme.spacers.L};
 `;
