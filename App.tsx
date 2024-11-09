@@ -17,7 +17,7 @@ export default () => {
           <ThemeProvider theme={theme}>
             <StatusBar
               barStyle="light-content"
-              backgroundColor={theme.colors.background}
+              backgroundColor={theme.colors.background.primary}
             />
             <AppNavigation />
           </ThemeProvider>

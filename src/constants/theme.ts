@@ -12,15 +12,17 @@ export const theme = {
     darkNavyBlue: '#101A27',
     text: {
       default: '#D4D4D8',
-      secondary: '#6683A7',
       primary: '#000000',
+      secondary: '#6683A7',
     },
   },
   spacers: {
+    XXXS: '1px',
     XXS: '2px',
     XS: '4px',
     S: '8px',
     M: '12px',
+    XM: '13px',
     L: '16px',
     XL: '20px',
     '2XL': '24px',

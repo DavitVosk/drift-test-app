@@ -48,13 +48,13 @@ export const AccountName = styled.Text`
 `;
 
 export const VerticalDivider = styled.View`
-  width: 1px;
+  width: ${({theme}) => theme.spacers.XXXS};
   background-color: ${({theme}) => theme.colors.darkNavyBlue};
 `;
 
 export const HorizontalDivider = styled.View`
   width: 100%;
-  height: 1px;
+  height: ${({theme}) => theme.spacers.XXXS};
   background-color: ${({theme}) => theme.colors.darkNavyBlue};
 `;
 

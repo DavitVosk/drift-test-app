@@ -5,7 +5,7 @@ import Clipboard from '@react-native-clipboard/clipboard';
 
 import {formatCurrency, shortenText} from '@src/utils/string';
 import Icon, {IconNames} from '@src/assets/icons';
-import Button from '@src/components/ColorButton';
+import ColorButton from '@src/components/ColorButton';
 import TabView from '@src/components/TabView';
 
 import * as S from './styles';
@@ -82,7 +82,7 @@ const Details = () => {
       </S.BalancesWrapper>
 
       <S.ButtonWrapper>
-        <Button
+        <ColorButton
           onPress={() => {}}
           fullWidth
           title="Deposit to Drift / Withdraw to Wallet"
