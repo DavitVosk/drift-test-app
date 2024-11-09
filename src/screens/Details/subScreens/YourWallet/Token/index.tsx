@@ -1,9 +1,10 @@
 import React, {memo} from 'react';
 
 import Icon, {IconNames} from '@src/assets/icons';
+import {TokenProps} from '@src/contexts/Wallet/types';
+import { formatCurrency, formatNumber } from '@src/utils/formatting';
 
 import * as S from './styles';
-import {TokenProps} from '@src/contexts/Wallet/types';
 
 const Token = ({data}: {data: TokenProps}) => {
   const {logoUrl, icon, name, volume, amount} = data;
@@ -20,8 +21,8 @@ const Token = ({data}: {data: TokenProps}) => {
       </S.TokenInfo>
 
       <S.TokenAmountInfo>
-        <S.Amount>{volume}</S.Amount>
-        <S.Amount>{amount}</S.Amount>
+        <S.Amount>{formatNumber(volume)}</S.Amount>
+        <S.Amount>{formatCurrency(amount)}</S.Amount>
       </S.TokenAmountInfo>
     </S.Wrapper>
   );

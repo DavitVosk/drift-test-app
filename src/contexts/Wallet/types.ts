@@ -2,8 +2,8 @@ import {ReactNode} from 'react';
 
 interface TokenCommonProps {
   name: string;
-  volume: string;
-  amount: string;
+  volume: number;
+  amount: number;
 }
 
 interface TokenWithLogoProps extends TokenCommonProps {

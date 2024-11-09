@@ -4,7 +4,7 @@ export const dummyTokens = [
   {
     icon: IconNames.walletDummy,
     name: 'Token Name',
-    volume: '1',
-    amount: '$15',
+    volume: 1,
+    amount: 15,
   },
 ];

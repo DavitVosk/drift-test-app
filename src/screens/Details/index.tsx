@@ -3,7 +3,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Clipboard from '@react-native-clipboard/clipboard';
 
-import {formatCurrency, shortenText} from '@src/utils/string';
+import {formatCurrency, shortenText} from '@src/utils/formatting';
 import Icon, {IconNames} from '@src/assets/icons';
 import ColorButton from '@src/components/ColorButton';
 import TabView from '@src/components/TabView';
