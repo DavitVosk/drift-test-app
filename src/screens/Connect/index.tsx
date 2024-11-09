@@ -1,5 +1,5 @@
 import React, {memo, useCallback, useEffect, useState} from 'react';
-import Button from '@src/components/Button';
+import Button from '@src/components/ColorButton';
 
 import * as S from './styles';
 import useConnect from '@src/hooks/useConnect';

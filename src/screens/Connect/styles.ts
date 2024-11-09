@@ -6,7 +6,7 @@ import {DRIFT_PROTOCOL, DRIFT_TERMS_AND_CONDITIONS} from '@src/constants/links';
 
 export const StyledBgImage = styled(ImageBackground)`
   flex: 1;
-  background-color: ${({theme}) => theme.colors.background};
+  background-color: ${({theme}) => theme.colors.background.primary};
 `;
 
 export const Wrapper = styled.View`

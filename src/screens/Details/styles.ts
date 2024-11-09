@@ -3,8 +3,9 @@ import styled from 'styled-components/native';
 
 export const Wrapper = styled(SafeAreaView)`
   flex: 1;
-  background-color: ${({theme}) => theme.colors.background};
+  background-color: ${({theme}) => theme.colors.background.primary};
   padding-top: ${({theme}) => theme.spacers.L};
+  gap: ${({theme}) => theme.spacers.L};
 `;
 
 export const Header = styled.View`
@@ -26,7 +27,6 @@ export const PublicKey = styled.Text`
 `;
 
 export const BalancesWrapper = styled.View`
-  margin-top: ${({theme}) => theme.spacers.L};
   padding-horizontal: ${({theme}) => theme.spacers.L};
   flex-direction: row;
   gap: ${({theme}) => theme.spacers.M};
@@ -50,8 +50,12 @@ export const AccountName = styled.Text`
 export const VerticalDivider = styled.View`
   width: 1px;
   background-color: ${({theme}) => theme.colors.darkNavyBlue};
-  gap: ${({theme}) => theme.spacers.XS};
-  align-items: center;
+`;
+
+export const HorizontalDivider = styled.View`
+  width: 100%;
+  height: 1px;
+  background-color: ${({theme}) => theme.colors.darkNavyBlue};
 `;
 
 export const Amount = styled.Text`
@@ -61,6 +65,5 @@ export const Amount = styled.Text`
 `;
 
 export const ButtonWrapper = styled.View`
-  margin-vertical: ${({theme}) => theme.spacers.L};
   padding-horizontal: ${({theme}) => theme.spacers.L};
 `;

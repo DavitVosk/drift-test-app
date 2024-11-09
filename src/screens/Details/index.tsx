@@ -5,7 +5,7 @@ import Clipboard from '@react-native-clipboard/clipboard';
 
 import {formatCurrency, shortenText} from '@src/utils/string';
 import Icon, {IconNames} from '@src/assets/icons';
-import Button from '@src/components/Button';
+import Button from '@src/components/ColorButton';
 import TabView from '@src/components/TabView';
 
 import * as S from './styles';
@@ -46,6 +46,8 @@ const Details = () => {
 
   return (
     <S.Wrapper>
+      <S.HorizontalDivider />
+
       <S.Header>
         <S.PublicKeyWrapper>
           <S.PublicKey>{shortenText(publicKeyString)}</S.PublicKey>
