@@ -3,6 +3,7 @@ import React, {
   type ReactNode,
   createContext,
   useContext,
+  useEffect,
   useState,
 } from 'react';
 
@@ -22,6 +23,11 @@ const DriftContext = createContext<DriftContextProps>({
 
 export const DriftProvider: FC<DriftProviderProps> = ({children}) => {
   const [balance, setBalance] = useState<number>(0);
+
+  useEffect(() => {
+    // Lets use dummy info for drift account
+    setBalance(100);
+  }, []);
 
   return (
     <DriftContext.Provider value={{balance, setBalance}}>

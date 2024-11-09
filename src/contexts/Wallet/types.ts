@@ -24,4 +24,5 @@ export interface WalletProviderProps {
 
 export interface WalletContextProps {
   tokens: TokenProps[];
+  balance: number;
 }
