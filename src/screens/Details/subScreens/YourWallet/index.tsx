@@ -1,13 +1,16 @@
 import React from 'react';
+import {FlatList} from 'react-native';
 
 import Button from '@src/components/Button';
 import CheckBox from '@src/components/CheckBox';
+import {useWallet} from '@src/contexts/Wallet';
 
 import * as S from './styles';
 import Token from './Token';
-import {IconNames} from '@src/assets/icons';
 
 const YourWallet = () => {
+  const {tokens} = useWallet();
+
   return (
     <S.Wrapper>
       <S.ButtonsWrapper>
@@ -25,16 +28,15 @@ const YourWallet = () => {
           </S.SmallBalancesWrapper>
         </S.TitleWrapper>
 
-        <S.TokensWrapper>
-          <Token
-            data={{
-              iconName: IconNames.walletDummy,
-              tokenName: 'Token Name',
-              volume: 1,
-              amount: '$15',
-            }}
-          />
-        </S.TokensWrapper>
+        <FlatList
+          data={tokens}
+          keyExtractor={media => media.name.toString()}
+          renderItem={({item}) => (
+            <S.TokenWrapper>
+              <Token data={item} />
+            </S.TokenWrapper>
+          )}
+        />
       </S.TokensSectionWrapper>
     </S.Wrapper>
   );

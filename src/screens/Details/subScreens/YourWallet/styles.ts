@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Wrapper = styled.View`
   flex: 1;
-  padding: ${({theme}) => theme.spacers.L};
+  padding-horizontal: ${({theme}) => theme.spacers.L};
   gap: ${({theme}) => theme.spacers.L};
 `;
 
@@ -12,6 +12,7 @@ export const ButtonsWrapper = styled.View`
 `;
 
 export const TokensSectionWrapper = styled.View`
+  flex: 1;
   gap: ${({theme}) => theme.spacers.M};
 `;
 
@@ -40,6 +41,6 @@ export const SmallBalances = styled.Text`
   color: ${({theme}) => theme.colors.text.secondary};
 `;
 
-export const TokensWrapper = styled.View`
-  gap: ${({theme}) => theme.spacers.XS};
+export const TokenWrapper = styled.View`
+  margin-bottom: ${({theme}) => theme.spacers.XS};
 `;

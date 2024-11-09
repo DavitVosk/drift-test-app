@@ -6,7 +6,8 @@ export const Wrapper = styled.View`
   padding: ${({theme}) => theme.spacers.S};
   justify-content: space-between;
   align-items: center;
-  bottomborder: ${({theme}) => theme.spacers.XXXS};
+  border-bottom-width: ${({theme}) => theme.spacers.XXXS};
+  border-bottom-color: ${({theme}) => theme.colors.darkNavyBlue};
 `;
 
 export const TokenInfo = styled.View`

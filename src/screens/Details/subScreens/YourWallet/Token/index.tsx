@@ -3,20 +3,20 @@ import React, {memo} from 'react';
 import Icon, {IconNames} from '@src/assets/icons';
 
 import * as S from './styles';
-import {TokenProps} from './types';
+import {TokenProps} from '@src/contexts/Wallet/types';
 
-const Token = ({data}: TokenProps) => {
-  const {logoUrl, iconName, tokenName, volume, amount} = data;
+const Token = ({data}: {data: TokenProps}) => {
+  const {logoUrl, icon, name, volume, amount} = data;
   return (
     <S.Wrapper>
       <S.TokenInfo>
         {logoUrl ? (
           <S.LogoImage source={{uri: logoUrl}} />
         ) : (
-          <Icon name={iconName as IconNames} />
+          <Icon name={icon as IconNames} />
         )}
 
-        <S.TokenName>{tokenName}</S.TokenName>
+        <S.TokenName>{name}</S.TokenName>
       </S.TokenInfo>
 
       <S.TokenAmountInfo>
