@@ -1,7 +1,13 @@
 import React, {memo} from 'react';
+import {TextStyle} from 'react-native';
+import {Gesture, GestureDetector} from 'react-native-gesture-handler';
+import {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from 'react-native-reanimated';
 
 import * as S from './styles';
-import {TextStyle} from 'react-native';
 
 interface ButtonProps {
   onPress: () => void;
@@ -10,10 +16,22 @@ interface ButtonProps {
 }
 
 const Button = ({onPress, title, textStyle}: ButtonProps) => {
+  const pressed = useSharedValue<boolean>(false);
+
+  const pan = Gesture.Pan()
+    .onBegin(() => (pressed.value = true))
+    .onFinalize(() => (pressed.value = false));
+
+  const animatedStyles = useAnimatedStyle(() => ({
+    transform: [{scale: withSpring(pressed.value ? 0.95 : 1)}],
+  }));
+
   return (
-    <S.Wrapper onPress={onPress}>
-      <S.Title style={textStyle}>{title}</S.Title>
-    </S.Wrapper>
+    <GestureDetector gesture={pan}>
+      <S.Wrapper onPress={onPress} style={animatedStyles}>
+        <S.Title style={textStyle}>{title}</S.Title>
+      </S.Wrapper>
+    </GestureDetector>
   );
 };
 

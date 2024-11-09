@@ -1,7 +1,13 @@
 import React, {memo} from 'react';
+import {TextStyle} from 'react-native';
+import {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from 'react-native-reanimated';
+import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 
 import * as S from './styles';
-import {TextStyle} from 'react-native';
 
 interface ColorButtonProps {
   onPress: () => void;
@@ -16,12 +22,32 @@ const ColorButton = ({
   textStyle,
   fullWidth = false,
 }: ColorButtonProps) => {
+  const pressed = useSharedValue<boolean>(false);
+
+  const pan = Gesture.Pan()
+    .onBegin(() => (pressed.value = true))
+    .onFinalize(() => (pressed.value = false));
+
+  const animatedStyles = useAnimatedStyle(() => ({
+    transform: [{scale: withSpring(pressed.value ? 0.95 : 1)}],
+  }));
+
   return (
-    <S.Container start={{x: 0, y: 0}} fullWidth={fullWidth} end={{x: 1, y: 0}}>
-      <S.Wrapper onPress={onPress}>
-        <S.Title style={textStyle}>{title}</S.Title>
-      </S.Wrapper>
-    </S.Container>
+    <GestureDetector gesture={pan}>
+      <S.Container
+        style={animatedStyles}
+        start={{x: 0, y: 0}}
+        fullWidth={fullWidth}
+        end={{x: 1, y: 0}}>
+        <S.Wrapper
+          onPress={onPress}
+          onBlur={() => {
+            console.log('on blur');
+          }}>
+          <S.Title style={textStyle}>{title}</S.Title>
+        </S.Wrapper>
+      </S.Container>
+    </GestureDetector>
   );
 };
 

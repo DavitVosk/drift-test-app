@@ -1,6 +1,7 @@
 import {ThemeProvider} from 'styled-components';
 import {clusterApiUrl} from '@solana/web3.js';
 import {StatusBar} from 'react-native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 import AppNavigation from '@src/navigation';
 import {theme} from '@src/constants/theme';
@@ -12,20 +13,22 @@ import {WalletProvider} from '@src/contexts/Wallet';
 
 export default () => {
   return (
-    <ConnectionProvider endpoint={clusterApiUrl(RPC_ENDPOINT)}>
-      <AuthProvider>
-        <DriftProvider>
-          <WalletProvider>
-            <ThemeProvider theme={theme}>
-              <StatusBar
-                barStyle="light-content"
-                backgroundColor={theme.colors.background.primary}
-              />
-              <AppNavigation />
-            </ThemeProvider>
-          </WalletProvider>
-        </DriftProvider>
-      </AuthProvider>
-    </ConnectionProvider>
+    <GestureHandlerRootView>
+      <ConnectionProvider endpoint={clusterApiUrl(RPC_ENDPOINT)}>
+        <AuthProvider>
+          <DriftProvider>
+            <WalletProvider>
+              <ThemeProvider theme={theme}>
+                <StatusBar
+                  barStyle="light-content"
+                  backgroundColor={theme.colors.background.primary}
+                />
+                <AppNavigation />
+              </ThemeProvider>
+            </WalletProvider>
+          </DriftProvider>
+        </AuthProvider>
+      </ConnectionProvider>
+    </GestureHandlerRootView>
   );
 };
