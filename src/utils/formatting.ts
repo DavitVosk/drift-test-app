@@ -15,9 +15,12 @@ export const formatCurrency = (
   }).format(amount)}`;
 };
 
-export const formatNumber = (amount: number): string => {
+export const formatNumber = (
+  amount: number,
+  maxPrecision: number = 10,
+): string => {
   return new Intl.NumberFormat('en-IN', {
     minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    maximumFractionDigits: maxPrecision,
   }).format(amount);
 };
