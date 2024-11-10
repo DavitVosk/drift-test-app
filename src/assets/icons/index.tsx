@@ -9,6 +9,9 @@ import MsolCoin from './MsolCoin';
 import BtcCoin from './BtcCoin';
 import EthCoin from './EthCoin';
 import UsdtCoin from './UsdtCoin';
+import BackArrow from './BackArrow';
+import Help from './Help';
+import Close from './Close';
 
 const icons = {
   copy: Copy,
@@ -22,6 +25,9 @@ const icons = {
   btcCoin: BtcCoin,
   ethCoin: EthCoin,
   usdtCoin: UsdtCoin,
+  backArrow: BackArrow,
+  help: Help,
+  close: Close,
 };
 
 export enum IconNames {
@@ -36,6 +42,9 @@ export enum IconNames {
   btcCoin = 'btcCoin',
   ethCoin = 'ethCoin',
   usdtCoin = 'usdtCoin',
+  backArrow = 'backArrow',
+  help = 'help',
+  close = 'close',
 }
 
 interface IconProps {

@@ -7,6 +7,8 @@ import {formatCurrency, shortenText} from '@src/utils/formatting';
 import Icon, {IconNames} from '@src/assets/icons';
 import ColorButton from '@src/components/ColorButton';
 import TabView from '@src/components/TabView';
+import {useModals} from '@src/contexts/Modal';
+import DepositModal from '@src/modals/Deposit';
 
 import * as S from './styles';
 import {useDetails} from './hooks';
@@ -16,6 +18,7 @@ import DriftAccount from './subScreens/DriftAccount';
 
 const Details = () => {
   const {walletBalance, driftBalance, publicKeyString} = useDetails();
+  const {showDepositModal, setShowDepositModal} = useModals();
   const [copied, setCopied] = useState<boolean>(false);
 
   useEffect(() => {
@@ -83,13 +86,14 @@ const Details = () => {
 
       <S.ButtonWrapper>
         <ColorButton
-          onPress={() => {}}
+          onPress={() => setShowDepositModal(true)}
           fullWidth
           title="Deposit to Drift / Withdraw to Wallet"
         />
       </S.ButtonWrapper>
 
       <TabView routes={routes} renderScene={renderScene} />
+      {showDepositModal && <DepositModal />}
     </S.Wrapper>
   );
 };

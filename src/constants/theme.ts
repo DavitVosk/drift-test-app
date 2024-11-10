@@ -11,6 +11,7 @@ export const theme = {
     lavenderPurple: '#9468F1',
     aquaBlue: '#71CCE9',
     darkNavyBlue: '#101A27',
+    deepNavyBlue: '#152A44',
     text: {
       default: '#D4D4D8',
       primary: '#000000',
