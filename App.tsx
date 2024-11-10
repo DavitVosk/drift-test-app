@@ -10,6 +10,7 @@ import {AuthProvider} from '@src/contexts/Auth';
 import {ConnectionProvider} from '@src/contexts/Connection';
 import {DriftProvider} from '@src/contexts/Drift';
 import {WalletProvider} from '@src/contexts/Wallet';
+import { ModalsProvider } from '@src/contexts/Modal';
 
 export default () => {
   return (
@@ -19,11 +20,13 @@ export default () => {
           <DriftProvider>
             <WalletProvider>
               <ThemeProvider theme={theme}>
-                <StatusBar
-                  barStyle="light-content"
-                  backgroundColor={theme.colors.background.primary}
-                />
-                <AppNavigation />
+                <ModalsProvider>
+                  <StatusBar
+                    barStyle="light-content"
+                    backgroundColor={theme.colors.background.primary}
+                  />
+                  <AppNavigation />
+                </ModalsProvider>
               </ThemeProvider>
             </WalletProvider>
           </DriftProvider>

@@ -1,7 +1,7 @@
-import {Image} from 'react-native';
+import {Image, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 
-export const Wrapper = styled.View`
+export const Wrapper = styled(TouchableOpacity)`
   flex-direction: row;
   padding: ${({theme}) => theme.spacers.S};
   justify-content: space-between;

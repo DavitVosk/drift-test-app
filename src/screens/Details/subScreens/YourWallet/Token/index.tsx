@@ -2,14 +2,16 @@ import React, {memo} from 'react';
 
 import Icon, {IconNames} from '@src/assets/icons';
 import {TokenProps} from '@src/contexts/Wallet/types';
-import { formatCurrency, formatNumber } from '@src/utils/formatting';
+import {formatCurrency, formatNumber} from '@src/utils/formatting';
+import {useModals} from '@src/contexts/Modal';
 
 import * as S from './styles';
 
 const Token = ({data}: {data: TokenProps}) => {
   const {logoUrl, icon, name, volume, amount} = data;
+  const {setShowDepositModal} = useModals();
   return (
-    <S.Wrapper>
+    <S.Wrapper onPress={() => setShowDepositModal(true)}>
       <S.TokenInfo>
         {logoUrl ? (
           <S.LogoImage source={{uri: logoUrl}} />

@@ -3,6 +3,7 @@ export const theme = {
     background: {
       primary: '#030A13',
       secondary: '#132236',
+      container: '#080F18',
     },
     lightPurple: '#B58AFF',
     secondary: '#6683A7',
