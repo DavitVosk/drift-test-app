@@ -3,6 +3,12 @@ import Success from './Success';
 import Settings from './Settings';
 import WalletDummy from './WalletDummy';
 import DriftLogo from './DriftLogo';
+import SolCoin from './SolCoin';
+import UsdcCoin from './UsdcCoin';
+import MsolCoin from './MsolCoin';
+import BtcCoin from './BtcCoin';
+import EthCoin from './EthCoin';
+import UsdtCoin from './UsdtCoin';
 
 const icons = {
   copy: Copy,
@@ -10,6 +16,12 @@ const icons = {
   settings: Settings,
   walletDummy: WalletDummy,
   driftLogo: DriftLogo,
+  solCoin: SolCoin,
+  usdcCoin: UsdcCoin,
+  msolCoin: MsolCoin,
+  btcCoin: BtcCoin,
+  ethCoin: EthCoin,
+  usdtCoin: UsdtCoin,
 };
 
 export enum IconNames {
@@ -18,6 +30,12 @@ export enum IconNames {
   settings = 'settings',
   walletDummy = 'walletDummy',
   driftLogo = 'driftLogo',
+  solCoin = 'solCoin',
+  usdcCoin = 'usdcCoin',
+  msolCoin = 'msolCoin',
+  btcCoin = 'btcCoin',
+  ethCoin = 'ethCoin',
+  usdtCoin = 'usdtCoin',
 }
 
 interface IconProps {
