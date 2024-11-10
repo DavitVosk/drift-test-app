@@ -35,6 +35,6 @@ export const dummyTokens = [
     icon: IconNames.usdtCoin,
     name: 'USDT',
     volume: 1.57135,
-    amount: 26.42,
+    amount: 10.42,
   },
 ];
