@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 import {TokenProps} from '../Wallet/types';
-import { dummyTokens } from './constants';
+import {dummyTokens} from './constants';
 
 interface DriftProviderProps {
   children: ReactNode;

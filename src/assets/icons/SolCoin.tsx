@@ -1,8 +1,15 @@
 import * as React from 'react';
-import Svg, {Path, Defs, Circle, LinearGradient, Stop} from 'react-native-svg';
+import Svg, {
+  Path,
+  Defs,
+  Circle,
+  LinearGradient,
+  Stop,
+  SvgProps,
+} from 'react-native-svg';
 
-const SolCoin = () => (
-  <Svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+const SolCoin = ({size = '24'}: typeof SvgProps) => (
+  <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
     <Circle cx="12" cy="12" r="12" fill="black" />
     <Path
       fillRule="evenodd"

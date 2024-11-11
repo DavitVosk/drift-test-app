@@ -13,6 +13,7 @@ import BackArrow from './BackArrow';
 import Help from './Help';
 import Close from './Close';
 import RightArrow from './RightArrow';
+import Vector from './Vector';
 
 const icons = {
   copy: Copy,
@@ -30,6 +31,7 @@ const icons = {
   help: Help,
   close: Close,
   rightArrow: RightArrow,
+  vector: Vector,
 };
 
 export enum IconNames {
@@ -48,16 +50,18 @@ export enum IconNames {
   help = 'help',
   close = 'close',
   rightArrow = 'rightArrow',
+  vector = 'vector',
 }
 
 export interface IconProps {
   name: IconNames;
   color?: string;
+  size?: string;
 }
 
 const Icon = (props: IconProps) => {
   const IconComponent = icons[props.name as keyof typeof icons];
-  return <IconComponent color={props.color} />;
+  return <IconComponent {...props} />;
 };
 
 export default Icon;

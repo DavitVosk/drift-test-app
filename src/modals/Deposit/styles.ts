@@ -1,4 +1,4 @@
-import {Pressable} from 'react-native';
+import {Image, Pressable} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
@@ -116,4 +116,23 @@ export const AssetBalance = styled.Text`
   color: ${({theme}) => theme.colors.text.default};
   font-size: ${({theme}) => theme.spacers.M};
   line-height: ${({theme}) => theme.spacers.L};
+`;
+
+export const TokenNameWrapper = styled(Pressable)`
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  gap: ${({theme}) => theme.spacers.XS};
+`;
+
+export const LogoImage = styled(Image)`
+  width: ${({theme}) => theme.spacers.L};
+  height: ${({theme}) => theme.spacers.L};
+`;
+
+export const TokenName = styled.Text`
+  font-size: ${({theme}) => theme.spacers.XM};
+  line-height: ${({theme}) => theme.spacers.L};
+  color: ${({theme}) => theme.colors.text.default};
+  font-weight: ${({theme}) => theme.fonts.medium};
 `;

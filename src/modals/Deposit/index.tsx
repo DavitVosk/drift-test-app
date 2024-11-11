@@ -1,35 +1,35 @@
-import {
-  TouchableOpacity,
-  Alert,
-  Text,
-  View,
-  Pressable,
-  Keyboard,
-} from 'react-native';
+import {TouchableOpacity, Alert, View, Pressable, Keyboard} from 'react-native';
 import React from 'react';
 
 import BottomSheet from '@src/components/BottomSheet';
 import Icon, {IconNames} from '@src/assets/icons';
-import {useModals} from '@src/contexts/Modals';
-
-import * as S from './styles';
-import {useDepositModal} from './hooks';
 import {theme} from '@src/constants/theme';
 import ColorButton from '@src/components/ColorButton';
 
+import * as S from './styles';
+import {useDepositModal} from './hooks';
+import Picker from '@src/components/Picker';
+import {useWallet} from '@src/contexts/Wallet';
+import {TokenProps} from '@src/contexts/Wallet/types';
+
 const DepositModal = () => {
-  const {transactionTokenName} = useModals();
+  const {tokens} = useWallet();
   const {
+    selectedToken,
     depositAmount,
     setDepositAmount,
     showDepositModal,
     formattedTokenVolume,
     closeModal,
+    closePicker,
     inputRef,
     setInputRef,
     driftCurrentAssetVolume,
     driftNewAssetVolume,
-  } = useDepositModal(transactionTokenName);
+    pickerVisible,
+    setPickerVisible,
+    onPickerValueChange,
+  } = useDepositModal();
 
   return (
     <BottomSheet isOpen={showDepositModal} onClose={closeModal}>
@@ -67,7 +67,20 @@ const DepositModal = () => {
 
               <S.AssetPickerRow>
                 <View style={{flex: 1}}>
-                  <Text>Tokens picker</Text>
+                  <S.TokenNameWrapper onPress={() => setPickerVisible(true)}>
+                    {selectedToken?.logoUrl ? (
+                      <S.LogoImage source={{uri: selectedToken?.logoUrl}} />
+                    ) : (
+                      <Icon
+                        name={selectedToken?.icon as IconNames}
+                        size={theme.spacers.L}
+                      />
+                    )}
+
+                    <S.TokenName>{selectedToken?.name}</S.TokenName>
+
+                    <Icon name={IconNames.vector} />
+                  </S.TokenNameWrapper>
                 </View>
 
                 <S.AmountInputWrapper onPress={() => inputRef.current?.focus()}>
@@ -98,6 +111,14 @@ const DepositModal = () => {
             <ColorButton title="Confirm Deposit" onPress={() => {}} fullWidth />
           </S.Body>
         </S.Wrapper>
+
+        <Picker
+          selectedItem={selectedToken as TokenProps}
+          items={tokens}
+          pickerVisible={pickerVisible}
+          onClose={closePicker}
+          onValueChange={onPickerValueChange}
+        />
       </Pressable>
     </BottomSheet>
   );

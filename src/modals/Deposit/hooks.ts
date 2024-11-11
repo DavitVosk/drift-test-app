@@ -5,11 +5,17 @@ import {useModals} from '@src/contexts/Modals';
 import {useWallet} from '@src/contexts/Wallet';
 import {formatNumberWithCommas, parseString} from '@src/utils/formatting';
 import {useDrift} from '@src/contexts/Drift';
+import {TokenProps} from '@src/contexts/Wallet/types';
 
-export const useDepositModal = (tokenName: string) => {
+export const useDepositModal = () => {
   const [depositAmount, setDepositAmount] = useState<string>('');
-  const {showDepositModal, setShowDepositModal, transactionTokenName} =
-    useModals();
+  const [pickerVisible, setPickerVisible] = useState(false);
+  const {
+    showDepositModal,
+    setShowDepositModal,
+    transactionTokenName,
+    setTransactionTokenName,
+  } = useModals();
   const {tokens} = useWallet();
   const {tokens: driftTokens} = useDrift();
 
@@ -21,11 +27,25 @@ export const useDepositModal = (tokenName: string) => {
 
   const closeModal = useCallback(() => {
     setShowDepositModal(false);
+    setPickerVisible(false);
   }, []);
 
+  const closePicker = useCallback(() => {
+    setPickerVisible(false);
+  }, []);
+
+  const onPickerValueChange = useCallback((item: TokenProps) => {
+    setTransactionTokenName(item.name);
+    setPickerVisible(false);
+  }, []);
+
+  const selectedToken = useMemo(() => {
+    return tokens.find(token => token.name === transactionTokenName);
+  }, [tokens, transactionTokenName]);
+
   const tokenVolume = useMemo(() => {
-    return tokens.find(token => token.name === tokenName)?.volume || 0;
-  }, [tokens, tokenName]);
+    return selectedToken?.volume || 0;
+  }, [selectedToken]);
 
   const formattedTokenVolume = useMemo(() => {
     return `${formatNumberWithCommas(tokenVolume)} ${transactionTokenName}`;
@@ -33,11 +53,14 @@ export const useDepositModal = (tokenName: string) => {
 
   useEffect(() => {
     setDepositAmount(formatNumberWithCommas(tokenVolume));
-  }, [tokenVolume, tokenName]);
+  }, [tokenVolume, transactionTokenName]);
 
   const driftAssetVolume = useMemo(() => {
-    return driftTokens.find(token => token.name === tokenName)?.volume || 0;
-  }, [driftTokens, tokenName]);
+    return (
+      driftTokens.find(token => token.name === transactionTokenName)?.volume ||
+      0
+    );
+  }, [driftTokens, transactionTokenName]);
 
   const driftCurrentAssetVolume = useMemo(() => {
     return formatNumberWithCommas(driftAssetVolume);
@@ -50,15 +73,20 @@ export const useDepositModal = (tokenName: string) => {
   }, [driftAssetVolume, depositAmount]);
 
   return {
+    selectedToken,
     depositAmount,
     setDepositAmount,
     showDepositModal,
     tokenVolume,
     formattedTokenVolume,
     closeModal,
+    closePicker,
     inputRef,
     setInputRef,
     driftCurrentAssetVolume,
     driftNewAssetVolume,
+    pickerVisible,
+    setPickerVisible,
+    onPickerValueChange,
   };
 };
