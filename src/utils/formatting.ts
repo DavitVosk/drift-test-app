@@ -24,3 +24,17 @@ export const formatNumber = (
     maximumFractionDigits: maxPrecision,
   }).format(amount);
 };
+
+export const formatNumberWithCommas = (
+  num: number,
+  maxPrecision: number = 10,
+): string => {
+  return num.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: maxPrecision,
+  });
+};
+
+export const parseString = (value: string): number => {
+  return parseFloat(value.replace(/,/g, ''));
+};

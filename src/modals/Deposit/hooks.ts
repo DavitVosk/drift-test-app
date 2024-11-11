@@ -1,12 +1,14 @@
-import {useCallback, useMemo, useRef, useState} from 'react';
+import {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {TextInput} from 'react-native';
 
-import {useModals} from '@src/contexts/Modal';
+import {useModals} from '@src/contexts/Modals';
 import {useWallet} from '@src/contexts/Wallet';
+import {formatNumberWithCommas} from '@src/utils/formatting';
 
 export const useDepositModal = (tokenName: string) => {
-  const [depositAmount, setDepositAmount] = useState('');
-  const {showDepositModal, setShowDepositModal} = useModals();
+  const [depositAmount, setDepositAmount] = useState<string>('');
+  const {showDepositModal, setShowDepositModal, transactionTokenName} =
+    useModals();
   const {tokens} = useWallet();
 
   const inputRef = useRef<TextInput | null>();
@@ -23,11 +25,20 @@ export const useDepositModal = (tokenName: string) => {
     return tokens.find(token => token.name === tokenName)?.volume || 0;
   }, [tokens, tokenName]);
 
+  const formattedTokenVolume = useMemo(() => {
+    return `${formatNumberWithCommas(tokenVolume)} ${transactionTokenName}`;
+  }, [tokenVolume, transactionTokenName]);
+
+  useEffect(() => {
+    setDepositAmount(formatNumberWithCommas(tokenVolume));
+  }, []);
+
   return {
     depositAmount,
     setDepositAmount,
     showDepositModal,
     tokenVolume,
+    formattedTokenVolume,
     closeModal,
     inputRef,
     setInputRef,

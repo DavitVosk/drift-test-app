@@ -10,7 +10,7 @@ import {AuthProvider} from '@src/contexts/Auth';
 import {ConnectionProvider} from '@src/contexts/Connection';
 import {DriftProvider} from '@src/contexts/Drift';
 import {WalletProvider} from '@src/contexts/Wallet';
-import { ModalsProvider } from '@src/contexts/Modal';
+import { ModalsProvider } from '@src/contexts/Modals';
 
 export default () => {
   return (

@@ -55,7 +55,6 @@ export const AssetAmountTitle = styled.Text`
 `;
 
 export const AssetAmountWrapper = styled.View`
-  flex: 1;
   border-radius: ${({theme}) => theme.spacers.XXS};
   padding-horizontal: ${({theme}) => theme.spacers.XS};
   background-color: ${({theme}) => theme.colors.background.secondary};

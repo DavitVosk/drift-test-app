@@ -38,3 +38,5 @@ export const dummyTokens = [
     amount: 10.42,
   },
 ];
+
+export const DEFAULT_TOKEN = 'SOL';
