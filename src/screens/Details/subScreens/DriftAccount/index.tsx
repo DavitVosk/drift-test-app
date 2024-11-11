@@ -4,7 +4,7 @@ import React from 'react';
 const DriftAccount = () => {
   return (
     <View>
-      <Text style={{color: 'white'}}>DriftAccount</Text>
+      <Text style={{color: 'white'}}>Coming soon</Text>
     </View>
   );
 };

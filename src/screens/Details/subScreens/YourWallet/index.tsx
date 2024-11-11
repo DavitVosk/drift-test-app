@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {FlatList} from 'react-native';
+import {Alert, FlatList} from 'react-native';
 
 import Button from '@src/components/Button';
 import CheckBox from '@src/components/CheckBox';
@@ -40,7 +40,7 @@ const YourWallet = () => {
     <S.Wrapper>
       <S.ButtonsWrapper>
         <Button title="Send" onPress={onSendPress} />
-        <Button title="Receive" onPress={() => {}} />
+        <Button title="Receive" onPress={() => Alert.alert('Will come soon')} />
       </S.ButtonsWrapper>
 
       <S.TokensSectionWrapper>
