@@ -16,36 +16,16 @@ import YourWallet from './subScreens/YourWallet';
 import DriftAccount from './subScreens/DriftAccount';
 
 const Details = () => {
-  const {walletBalance, driftBalance, publicKeyString, onButtonPress} =
-    useDetails();
-  const [copied, setCopied] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (copied) setTimeout(() => setCopied(false), 2000);
-  }, [copied]);
-
-  const onClipboardPress = useCallback(() => {
-    Clipboard.setString(publicKeyString);
-    setCopied(true);
-  }, []);
-
-  const renderScene = ({
-    route,
-  }: {
-    route: {
-      key: string;
-    };
-  }) => {
-    switch (route.key) {
-      case 'your_wallet':
-        return <YourWallet />;
-      case 'drift_account':
-        return <DriftAccount />;
-      default:
-        return <></>;
-    }
-  };
-
+  const {
+    walletBalance,
+    driftBalance,
+    publicKeyString,
+    onButtonPress,
+    renderScene,
+    onClipboardPress,
+    addressCopied,
+  } = useDetails();
+  
   return (
     <S.Wrapper>
       <S.HorizontalDivider />
@@ -55,7 +35,7 @@ const Details = () => {
           <S.PublicKey>{shortenText(publicKeyString)}</S.PublicKey>
 
           <TouchableOpacity onPress={onClipboardPress}>
-            <Icon name={copied ? IconNames.success : IconNames.copy} />
+            <Icon name={addressCopied ? IconNames.success : IconNames.copy} />
           </TouchableOpacity>
         </S.PublicKeyWrapper>
         <TouchableOpacity onPress={() => Alert.alert('Will come soon')}>

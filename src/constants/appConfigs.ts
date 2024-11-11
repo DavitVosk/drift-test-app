@@ -5,7 +5,13 @@ export const APP_IDENTITY = {
   uri: DRIFT_WEBSITE,
 };
 
-export const RPC_ENDPOINT = 'mainnet-beta';
+enum WalletAdapterNetwork {
+  Mainnet = 'mainnet-beta',
+  Testnet = 'testnet',
+  Devnet = 'devnet',
+}
+
+export const RPC_ENDPOINT = WalletAdapterNetwork.Devnet;
 
 export const STORAGE_KEY = 'app-cache';
 
