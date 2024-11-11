@@ -30,7 +30,7 @@ export const formatNumberWithCommas = (
   maxPrecision: number = 10,
 ): string => {
   return num.toLocaleString(undefined, {
-    minimumFractionDigits: 2,
+    minimumFractionDigits: 1,
     maximumFractionDigits: maxPrecision,
   });
 };

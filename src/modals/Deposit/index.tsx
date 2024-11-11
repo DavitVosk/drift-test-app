@@ -14,6 +14,8 @@ import {useModals} from '@src/contexts/Modals';
 
 import * as S from './styles';
 import {useDepositModal} from './hooks';
+import {theme} from '@src/constants/theme';
+import ColorButton from '@src/components/ColorButton';
 
 const DepositModal = () => {
   const {transactionTokenName} = useModals();
@@ -25,6 +27,8 @@ const DepositModal = () => {
     closeModal,
     inputRef,
     setInputRef,
+    driftCurrentAssetVolume,
+    driftNewAssetVolume,
   } = useDepositModal(transactionTokenName);
 
   return (
@@ -76,6 +80,22 @@ const DepositModal = () => {
                 </S.AmountInputWrapper>
               </S.AssetPickerRow>
             </S.DepositInfoWrapper>
+
+            <S.HorizontalDivider />
+
+            <S.AssetBalanceWrapper>
+              <S.AssetAmountTitle>Asset Balance</S.AssetAmountTitle>
+              <S.AssetBalanceOnDrift>
+                <S.AssetBalance>{driftCurrentAssetVolume}</S.AssetBalance>
+                <Icon
+                  name={IconNames.rightArrow}
+                  color={theme.colors.text.default}
+                />
+                <S.AssetBalance>{driftNewAssetVolume}</S.AssetBalance>
+              </S.AssetBalanceOnDrift>
+            </S.AssetBalanceWrapper>
+
+            <ColorButton title="Confirm Deposit" onPress={() => {}} fullWidth />
           </S.Body>
         </S.Wrapper>
       </Pressable>

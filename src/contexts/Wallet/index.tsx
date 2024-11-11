@@ -19,6 +19,8 @@ import {COINGECKO_URL} from '@src/constants/links';
 const WalletContext = createContext<WalletContextProps>({
   tokens: [],
   balance: 0,
+  setBalance: () => {},
+  setTokens: () => {},
 });
 
 export const WalletProvider: FC<WalletProviderProps> = ({children}) => {
@@ -71,7 +73,7 @@ export const WalletProvider: FC<WalletProviderProps> = ({children}) => {
   }, [fetchWalletBalance, selectedAccount]);
 
   return (
-    <WalletContext.Provider value={{tokens, balance}}>
+    <WalletContext.Provider value={{tokens, setTokens, balance, setBalance}}>
       {children}
     </WalletContext.Provider>
   );

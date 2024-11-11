@@ -12,6 +12,7 @@ import UsdtCoin from './UsdtCoin';
 import BackArrow from './BackArrow';
 import Help from './Help';
 import Close from './Close';
+import RightArrow from './RightArrow';
 
 const icons = {
   copy: Copy,
@@ -28,6 +29,7 @@ const icons = {
   backArrow: BackArrow,
   help: Help,
   close: Close,
+  rightArrow: RightArrow,
 };
 
 export enum IconNames {
@@ -45,15 +47,17 @@ export enum IconNames {
   backArrow = 'backArrow',
   help = 'help',
   close = 'close',
+  rightArrow = 'rightArrow',
 }
 
-interface IconProps {
+export interface IconProps {
   name: IconNames;
+  color?: string;
 }
 
 const Icon = (props: IconProps) => {
   const IconComponent = icons[props.name as keyof typeof icons];
-  return <IconComponent />;
+  return <IconComponent color={props.color} />;
 };
 
 export default Icon;

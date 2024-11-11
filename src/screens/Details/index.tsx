@@ -7,7 +7,6 @@ import {formatCurrency, shortenText} from '@src/utils/formatting';
 import Icon, {IconNames} from '@src/assets/icons';
 import ColorButton from '@src/components/ColorButton';
 import TabView from '@src/components/TabView';
-import {useModals} from '@src/contexts/Modals';
 import DepositModal from '@src/modals/Deposit';
 
 import * as S from './styles';
@@ -19,7 +18,6 @@ import DriftAccount from './subScreens/DriftAccount';
 const Details = () => {
   const {walletBalance, driftBalance, publicKeyString, onButtonPress} =
     useDetails();
-  const {showDepositModal} = useModals();
   const [copied, setCopied] = useState<boolean>(false);
 
   useEffect(() => {
@@ -94,7 +92,7 @@ const Details = () => {
       </S.ButtonWrapper>
 
       <TabView routes={routes} renderScene={renderScene} />
-      {showDepositModal && <DepositModal />}
+      <DepositModal />
     </S.Wrapper>
   );
 };

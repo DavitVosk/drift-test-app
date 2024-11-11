@@ -91,3 +91,29 @@ export const AmountInputWrapper = styled(Pressable)`
   flex: 1;
   align-items: flex-end;
 `;
+
+export const HorizontalDivider = styled.View`
+  width: 100%;
+  height: ${({theme}) => theme.spacers.XXXS};
+  background-color: ${({theme}) => theme.colors.darkNavyBlue};
+`;
+
+export const AssetBalanceWrapper = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  gap: ${({theme}) => theme.spacers.XS};
+`;
+
+export const AssetBalanceOnDrift = styled.View`
+  flex: 1;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: ${({theme}) => theme.spacers.XS};
+`;
+
+export const AssetBalance = styled.Text`
+  color: ${({theme}) => theme.colors.text.default};
+  font-size: ${({theme}) => theme.spacers.M};
+  line-height: ${({theme}) => theme.spacers.L};
+`;

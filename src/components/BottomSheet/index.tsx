@@ -1,5 +1,6 @@
 import React, {ReactNode} from 'react';
 import Modal from 'react-native-modal';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 import * as S from './styles';
 
@@ -24,7 +25,9 @@ const BottomSheet = ({
       margin: 0,
       justifyContent: 'flex-end',
     }}>
-    <S.Content>{children}</S.Content>
+    <GestureHandlerRootView>
+      <S.Content>{children}</S.Content>
+    </GestureHandlerRootView>
   </Modal>
 );
 
