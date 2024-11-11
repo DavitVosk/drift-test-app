@@ -1,5 +1,6 @@
 import {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {TextInput} from 'react-native';
+import {Alert, TextInput} from 'react-native';
+import Toast from 'react-native-toast-message';
 
 import {useModals} from '@src/contexts/Modals';
 import {useWallet} from '@src/contexts/Wallet';
@@ -72,6 +73,19 @@ export const useDepositModal = () => {
     );
   }, [driftAssetVolume, depositAmount]);
 
+  const onDepositConfirm = useCallback(() => {
+    closeModal();
+    Toast.show({
+      type: 'success',
+      props: {
+        title: 'Deposit Successful',
+        desc: 'View transaction',
+        onActionPress: () => Alert.alert('Will come soon'),
+      },
+      position: 'bottom',
+    });
+  }, [closeModal]);
+
   return {
     selectedToken,
     depositAmount,
@@ -88,5 +102,6 @@ export const useDepositModal = () => {
     pickerVisible,
     setPickerVisible,
     onPickerValueChange,
+    onDepositConfirm,
   };
 };

@@ -16,6 +16,7 @@ export const theme = {
       default: '#D4D4D8',
       primary: '#000000',
       secondary: '#6683A7',
+      positive: '#34CB88',
     },
   },
   spacers: {

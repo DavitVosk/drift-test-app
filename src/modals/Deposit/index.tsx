@@ -29,6 +29,7 @@ const DepositModal = () => {
     pickerVisible,
     setPickerVisible,
     onPickerValueChange,
+    onDepositConfirm,
   } = useDepositModal();
 
   return (
@@ -108,7 +109,11 @@ const DepositModal = () => {
               </S.AssetBalanceOnDrift>
             </S.AssetBalanceWrapper>
 
-            <ColorButton title="Confirm Deposit" onPress={() => {}} fullWidth />
+            <ColorButton
+              title="Confirm Deposit"
+              onPress={onDepositConfirm}
+              fullWidth
+            />
           </S.Body>
         </S.Wrapper>
 

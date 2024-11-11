@@ -5,6 +5,8 @@ import Button from '@src/components/Button';
 import CheckBox from '@src/components/CheckBox';
 import {useWallet} from '@src/contexts/Wallet';
 import {tokenBalanceThreshold} from '@src/constants/appConfigs';
+import {DEFAULT_TOKEN} from '@src/contexts/Wallet/constants';
+import {useModals} from '@src/contexts/Modals';
 
 import * as S from './styles';
 import Token from './Token';
@@ -13,6 +15,7 @@ const YourWallet = () => {
   const {tokens} = useWallet();
   const [filteredTokens, setFilteredTokens] = useState(tokens);
   const [showSmallBalances, setShowSmallBalances] = useState<boolean>(false);
+  const {setShowDepositModal, setTransactionTokenName} = useModals();
 
   const filterTokens = useCallback(() => {
     setShowSmallBalances(prevValue => {
@@ -28,10 +31,15 @@ const YourWallet = () => {
     });
   }, [tokens]);
 
+  const onSendPress = useCallback(() => {
+    setShowDepositModal(true);
+    setTransactionTokenName(DEFAULT_TOKEN);
+  }, []);
+
   return (
     <S.Wrapper>
       <S.ButtonsWrapper>
-        <Button title="Send" onPress={() => {}} />
+        <Button title="Send" onPress={onSendPress} />
         <Button title="Receive" onPress={() => {}} />
       </S.ButtonsWrapper>
 

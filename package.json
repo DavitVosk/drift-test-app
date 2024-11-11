@@ -34,6 +34,7 @@
     "react-native-simple-default-props": "^1.0.0",
     "react-native-svg": "15.7.0",
     "react-native-tab-view": "^4.0.1",
+    "react-native-toast-message": "^2.2.1",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
