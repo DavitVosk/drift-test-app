@@ -1,4 +1,5 @@
 PODS:
+  - BEMCheckBox (1.4.1)
   - boost (1.76.0)
   - BVLinearGradient (2.8.3):
     - React-Core
@@ -377,6 +378,11 @@ PODS:
   - React-jsinspector (0.72.15)
   - React-logger (0.72.15):
     - glog
+  - react-native-get-random-values (1.11.0):
+    - React-Core
+  - react-native-pager-view (6.4.1):
+    - RCT-Folly (= 2021.07.22.00)
+    - React-Core
   - react-native-safe-area-context (4.14.0):
     - React-Core
   - React-NativeModulesApple (0.72.15):
@@ -489,13 +495,36 @@ PODS:
     - React-jsi (= 0.72.15)
     - React-logger (= 0.72.15)
     - React-perflogger (= 0.72.15)
+  - RNCAsyncStorage (2.0.0):
+    - React-Core
+  - RNCCheckbox (0.5.17):
+    - BEMCheckBox (~> 1.4)
+    - React-Core
+  - RNCClipboard (1.14.3):
+    - React-Core
   - RNGestureHandler (2.20.2):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
+  - RNReanimated (3.15.1):
+    - RCT-Folly (= 2021.07.22.00)
+    - React-Core
+    - ReactCommon/turbomodule/core
+    - RNReanimated/reanimated (= 3.15.1)
+    - RNReanimated/worklets (= 3.15.1)
+  - RNReanimated/reanimated (3.15.1):
+    - RCT-Folly (= 2021.07.22.00)
+    - React-Core
+    - ReactCommon/turbomodule/core
+  - RNReanimated/worklets (3.15.1):
+    - RCT-Folly (= 2021.07.22.00)
+    - React-Core
+    - ReactCommon/turbomodule/core
   - RNScreens (3.35.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
     - React-RCTImage
+  - RNSVG (15.7.0):
+    - React-Core
   - SocketRocket (0.6.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -548,6 +577,8 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-get-random-values (from `../node_modules/react-native-get-random-values`)
+  - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -566,12 +597,18 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCCheckbox (from `../node_modules/@react-native-community/checkbox`)"
+  - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
+    - BEMCheckBox
     - CocoaAsyncSocket
     - Flipper
     - Flipper-Boost-iOSX
@@ -632,6 +669,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-get-random-values:
+    :path: "../node_modules/react-native-get-random-values"
+  react-native-pager-view:
+    :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-NativeModulesApple:
@@ -668,14 +709,25 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNCCheckbox:
+    :path: "../node_modules/@react-native-community/checkbox"
+  RNCClipboard:
+    :path: "../node_modules/@react-native-clipboard/clipboard"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   boost: 7dcd2de282d72e344012f7d6564d024930a6a440
   BVLinearGradient: 880f91a7854faff2df62518f0281afb1c60d49a3
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
@@ -710,6 +762,8 @@ SPEC CHECKSUMS:
   React-jsiexecutor: d3eef5ddc78eeb9f0d02bed657a7f41d4910b966
   React-jsinspector: b86a8abae760c28d69366bbc1d991561e51341ed
   React-logger: ed7c9e01e58529065e7da6bf8318baf15024283e
+  react-native-get-random-values: 21325b2244dfa6b58878f51f9aa42821e7ba3d06
+  react-native-pager-view: 4be639d9742fb683ea538b69a8855f9239ea72c6
   react-native-safe-area-context: 4532f1a0c5d34a46b9324ccaaedcb5582a302b7d
   React-NativeModulesApple: ee36a33f5ad8d80487c43e6b4370ea2eaaa81750
   React-perflogger: 6acc671f527e69c0cd93b8e62821d33d3ddf25ca
@@ -728,8 +782,13 @@ SPEC CHECKSUMS:
   React-runtimescheduler: ae08ede2e0267be2a4d8ba82a54d5908949d5a34
   React-utils: 8eb3c12fd4a4da6df3824f7d9a961d73a6ed6e5d
   ReactCommon: d2de36ed3eebe700d7169b9e80f7d1a4b98e178d
+  RNCAsyncStorage: d35c79ffba52c1013013e16b1fc295aec2feabb6
+  RNCCheckbox: a3ca9978cb0846b981d28da4e9914bd437403d77
+  RNCClipboard: 2821ac938ef46f736a8de0c8814845dde2dcbdfb
   RNGestureHandler: f31a57d2f2ccb5bd21bc03b4de0a5f917622641f
+  RNReanimated: 1896df448c213a64e98cf3f796e4105bbfab41a2
   RNScreens: 2fc874a2605e88dedf43204a79fad1d2da4abfbe
+  RNSVG: d9ace59c226d22fb44461b843c01666f1096b8c8
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 6f5ab94cd8b1ecd04b6e973d0bc583ede2a598cc
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
